@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Equipos</title>
+</head>
+<body>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+<h1>Gestión de Equipos</h1>
+<a href="/equipos/nuevo">Nuevo Equipo</a>
+<table border="1">
+  <thead>
+  <tr><th>ID</th><th>Nombre</th><th>Tag</th><th>Capitan</th><th>Cantidad de Jugadores</th><th>Juego</th><th>Pais</th><th>Correo</th><th>Telefono</th></tr>
+  </thead>
+  <tbody>
+  <tr th:each="c : ${equipos}">
+    <td th:text="${c.id}"></td>
+    <td th:text="${c.name}"></td>
+    <td th:text="${c.tag}"></td>
+    <td th:text="${c.captain}"></td>
+    <td th:text="${c.cantplayers}"></td>
+    <td th:text="${c.game}"></td>
+    <td th:text="${c.country}"></td>
+    <td th:text="${c.email}"></td>
+    <td th:text="${c.phone}"></td>
+    <td>
+      <a th:href="@{/equipos/editar/{id}(id=${c.id})}">Editar</a>
+      <a th:href="@{/equipos/eliminar/{id}(id=${c.id})}" onclick="return confirm('¿Eliminar?')">Eliminar</a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>

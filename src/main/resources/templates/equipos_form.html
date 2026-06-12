@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario Equipos</title>
+</head>
+<body>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+<h1 th:text="${equipos.id == null} ? 'Nuevo Equipo' : 'Editar Equipo'"></h1>
+<form action="#" th:action="@{/equipos/guardar}" th:object="${equipos}" method="post">
+    <input type="hidden" th:field="*{id}"/>
+    <label>Nombre del Equipo:</label>
+    <input type="text" th:field="*{name}"/>
+    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" style="color:red"></span>
+    <br/>
+    <label>Tag del Equipo:</label>
+    <input type="text" th:field="*{name}"/>
+    <span th:if="${#fields.hasErrors('tag')}" th:errors="*{tag}" style="color:red"></span>
+    <br/>
+    <label>Nombre del Capitán:</label>
+    <input type="text" th:field="*{name}"/>
+    <span th:if="${#fields.hasErrors('captain')}" th:errors="*{captain}" style="color:red"></span>
+    <br/>
+    <label>Cantidad de Jugadores:</label>
+    <input type="text" th:field="*{name}"/>
+    <span th:if="${#fields.hasErrors('cantplayers')}" th:errors="*{cantplayers}" style="color:red"></span>
+    <br/>
+    <label>Juego:</label>
+    <input type="text" th:field="*{name}"/>
+    <span th:if="${#fields.hasErrors('game')}" th:errors="*{game}" style="color:red"></span>
+    <br/>
+    <label>País:</label>
+    <input type="text" th:field="*{name}"/>
+    <span th:if="${#fields.hasErrors('country')}" th:errors="*{country}" style="color:red"></span>
+    <br/>
+    <label>Correo de Contacto:</label>
+    <input type="text" th:field="*{name}"/>
+    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" style="color:red"></span>
+    <br/>
+    <label>Teléfono de Contacto:</label>
+    <input type="text" th:field="*{name}"/>
+    <span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}" style="color:red"></span>
+    <br/>
+    <button type="submit">Guardar</button>
+    <a href="/clientes">Cancelar</a>
+</form>
+</body>
+</html>
